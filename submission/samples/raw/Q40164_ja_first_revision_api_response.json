@@ -1,0 +1,39 @@
+{
+  "request": {
+    "url": "https://ja.wikipedia.org/w/api.php",
+    "params": {
+      "format": "json",
+      "formatversion": "2",
+      "maxlag": 5,
+      "action": "query",
+      "titles": "てこ",
+      "prop": "revisions",
+      "rvdir": "newer",
+      "rvlimit": 1,
+      "rvprop": "ids|timestamp|tags"
+    }
+  },
+  "response": {
+    "continue": {
+      "rvcontinue": "20040401032518|300112",
+      "continue": "||"
+    },
+    "query": {
+      "pages": [
+        {
+          "pageid": 71724,
+          "ns": 0,
+          "title": "てこ",
+          "revisions": [
+            {
+              "revid": 300094,
+              "parentid": 0,
+              "timestamp": "2004-03-31T03:12:11Z",
+              "tags": []
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

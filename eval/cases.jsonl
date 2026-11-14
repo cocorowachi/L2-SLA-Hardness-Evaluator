@@ -1,0 +1,55 @@
+{"id": "es-por", "l1": "en", "l2": "es", "lemma": "por", "upos": "ADP", "label": "hard", "category": "split", "split": "test", "rationale": "English 'for/by/through' splits into por/para; a classic persistent error for English learners"}
+{"id": "es-para", "l1": "en", "l2": "es", "lemma": "para", "upos": "ADP", "label": "hard", "category": "split", "split": "test", "rationale": "Other half of the por/para split"}
+{"id": "es-clitic", "l1": "en", "l2": "es", "lemma": "él", "upos": "PRON", "label": "hard", "category": "split", "split": "test", "rationale": "Object/reflexive clitics se/lo/le (Stanza lemmatizes all of them to él; mostly se): pre-verbal placement and reflexive/impersonal uses have no English equivalent"}
+{"id": "es-hospital", "l1": "en", "l2": "es", "lemma": "hospital", "upos": "NOUN", "label": "easy", "category": "cognate", "split": "test", "rationale": "Identical cognate"}
+{"id": "es-animal", "l1": "en", "l2": "es", "lemma": "animal", "upos": "NOUN", "label": "easy", "category": "cognate", "split": "test", "rationale": "Identical cognate"}
+{"id": "es-universidad", "l1": "en", "l2": "es", "lemma": "universidad", "upos": "NOUN", "label": "easy", "category": "cognate", "split": "test", "rationale": "Transparent cognate (university)"}
+{"id": "es-musica", "l1": "en", "l2": "es", "lemma": "música", "upos": "NOUN", "label": "easy", "category": "cognate", "split": "test", "rationale": "Transparent cognate (music)"}
+{"id": "es-importante", "l1": "en", "l2": "es", "lemma": "importante", "upos": "ADJ", "label": "easy", "category": "cognate", "split": "test", "rationale": "Transparent cognate (important)"}
+{"id": "en-do", "l1": "es", "l2": "en", "lemma": "do", "upos": "AUX", "label": "hard", "category": "gap", "split": "test", "rationale": "Do-support (questions/negation) has no Spanish counterpart"}
+{"id": "en-make", "l1": "es", "l2": "en", "lemma": "make", "upos": "VERB", "label": "hard", "category": "split", "split": "test", "rationale": "Spanish hacer splits into make/do"}
+{"id": "en-tell", "l1": "es", "l2": "en", "lemma": "tell", "upos": "VERB", "label": "hard", "category": "split", "split": "test", "rationale": "Spanish decir splits into say/tell"}
+{"id": "en-will", "l1": "es", "l2": "en", "lemma": "will", "upos": "AUX", "label": "hard", "category": "gap", "split": "test", "rationale": "Analytic future auxiliary vs Spanish inflectional future"}
+{"id": "en-nation", "l1": "es", "l2": "en", "lemma": "nation", "upos": "NOUN", "label": "easy", "category": "cognate", "split": "test", "rationale": "Transparent cognate (nación)"}
+{"id": "en-president", "l1": "es", "l2": "en", "lemma": "president", "upos": "NOUN", "label": "easy", "category": "cognate", "split": "test", "rationale": "Transparent cognate (presidente)"}
+{"id": "en-family", "l1": "es", "l2": "en", "lemma": "family", "upos": "NOUN", "label": "easy", "category": "cognate", "split": "test", "rationale": "Transparent cognate (familia)"}
+{"id": "en-music", "l1": "es", "l2": "en", "lemma": "music", "upos": "NOUN", "label": "easy", "category": "cognate", "split": "test", "rationale": "Transparent cognate (música)"}
+{"id": "ja-hiki", "l1": "en", "l2": "ja", "lemma": "匹", "upos": "NOUN", "label": "hard", "category": "gap", "split": "test", "rationale": "Numeral classifier for animals; English has no classifiers"}
+{"id": "ja-mai", "l1": "en", "l2": "ja", "lemma": "枚", "upos": "NOUN", "label": "hard", "category": "gap", "split": "test", "rationale": "Numeral classifier for flat objects"}
+{"id": "ja-kureru", "l1": "en", "l2": "ja", "lemma": "呉れる", "upos": "VERB", "label": "hard", "category": "split", "split": "test", "rationale": "English 'give' splits into あげる/くれる by direction of benefit (Stanza lemma 呉れる)"}
+{"id": "ja-ageru", "l1": "en", "l2": "ja", "lemma": "上げる", "upos": "VERB", "label": "hard", "category": "split", "split": "test", "rationale": "Other half of the give split (Stanza lemma 上げる)"}
+{"id": "ja-tv", "l1": "en", "l2": "ja", "lemma": "テレビ", "upos": "NOUN", "label": "easy", "category": "loanword", "split": "test", "rationale": "English loanword (television)"}
+{"id": "ja-game", "l1": "en", "l2": "ja", "lemma": "ゲーム", "upos": "NOUN", "label": "easy", "category": "loanword", "split": "test", "rationale": "English loanword (game)"}
+{"id": "ja-team", "l1": "en", "l2": "ja", "lemma": "チーム", "upos": "NOUN", "label": "easy", "category": "loanword", "split": "test", "rationale": "English loanword (team)"}
+{"id": "ja-sport", "l1": "en", "l2": "ja", "lemma": "スポーツ", "upos": "NOUN", "label": "easy", "category": "loanword", "split": "test", "rationale": "English loanword (sport)"}
+{"id": "en-would", "l1": "ja", "l2": "en", "lemma": "would", "upos": "AUX", "label": "hard", "category": "gap", "split": "test", "rationale": "Conditional/hypothetical modal; Japanese marks this very differently"}
+{"id": "en-have-aux", "l1": "ja", "l2": "en", "lemma": "have", "upos": "AUX", "label": "hard", "category": "gap", "split": "test", "rationale": "Perfect aspect auxiliary; no Japanese equivalent"}
+{"id": "en-at", "l1": "ja", "l2": "en", "lemma": "at", "upos": "ADP", "label": "hard", "category": "split", "split": "test", "rationale": "に/で map onto at/in/on in non-1:1 ways"}
+{"id": "en-any", "l1": "ja", "l2": "en", "lemma": "any", "upos": "DET", "label": "hard", "category": "gap", "split": "test", "rationale": "Determiner/quantifier system largely absent in Japanese"}
+{"id": "en-hotel-ja", "l1": "ja", "l2": "en", "lemma": "coffee", "upos": "NOUN", "label": "easy", "category": "loanword", "split": "test", "rationale": "Borrowed into Japanese as コーヒー"}
+{"id": "en-team-ja", "l1": "ja", "l2": "en", "lemma": "team", "upos": "NOUN", "label": "easy", "category": "loanword", "split": "test", "rationale": "Borrowed into Japanese as チーム"}
+{"id": "en-game-ja", "l1": "ja", "l2": "en", "lemma": "game", "upos": "NOUN", "label": "easy", "category": "loanword", "split": "test", "rationale": "Borrowed into Japanese as ゲーム"}
+{"id": "en-television-ja", "l1": "ja", "l2": "en", "lemma": "television", "upos": "NOUN", "label": "easy", "category": "loanword", "split": "test", "rationale": "Borrowed into Japanese as テレビ"}
+{"id": "ja-hiki-es", "l1": "es", "l2": "ja", "lemma": "匹", "upos": "NOUN", "label": "hard", "category": "gap", "split": "test", "rationale": "Numeral classifier; Spanish has none"}
+{"id": "ja-kureru-es", "l1": "es", "l2": "ja", "lemma": "呉れる", "upos": "VERB", "label": "hard", "category": "split", "split": "test", "rationale": "Spanish dar splits into あげる/くれる"}
+{"id": "ja-pan-es", "l1": "es", "l2": "ja", "lemma": "パン", "upos": "NOUN", "label": "easy", "category": "loanword", "split": "test", "rationale": "Iberian loanword (pan)"}
+{"id": "ja-camera-es", "l1": "es", "l2": "ja", "lemma": "カメラ", "upos": "NOUN", "label": "easy", "category": "loanword", "split": "test", "rationale": "Loanword shared with Spanish cámara"}
+{"id": "es-la-ja", "l1": "ja", "l2": "es", "lemma": "el", "upos": "DET", "label": "hard", "category": "gap", "split": "dev", "rationale": "Definite article with gender agreement; Japanese has neither (score inspected earlier)"}
+{"id": "es-por-ja", "l1": "ja", "l2": "es", "lemma": "por", "upos": "ADP", "label": "hard", "category": "split", "split": "test", "rationale": "por/para distinction not made by Japanese postpositions"}
+{"id": "es-clitic-ja", "l1": "ja", "l2": "es", "lemma": "él", "upos": "PRON", "label": "hard", "category": "gap", "split": "test", "rationale": "Clitics se/lo/le (lemmatized to él): no Japanese equivalent"}
+{"id": "es-cafe-ja", "l1": "ja", "l2": "es", "lemma": "café", "upos": "NOUN", "label": "easy", "category": "loanword", "split": "test", "rationale": "Shared loanword (カフェ/コーヒー)"}
+{"id": "es-hotel-ja", "l1": "ja", "l2": "es", "lemma": "hotel", "upos": "NOUN", "label": "easy", "category": "loanword", "split": "test", "rationale": "Shared loanword (ホテル)"}
+{"id": "dev-ser", "l1": "en", "l2": "es", "lemma": "ser", "upos": "AUX", "label": "hard", "category": "split", "split": "dev", "rationale": "be -> ser/estar (inspected earlier)"}
+{"id": "dev-estar", "l1": "en", "l2": "es", "lemma": "estar", "upos": "AUX", "label": "hard", "category": "split", "split": "dev", "rationale": "be -> ser/estar (used to tune alpha)"}
+{"id": "dev-conocer", "l1": "en", "l2": "es", "lemma": "conocer", "upos": "VERB", "label": "hard", "category": "split", "split": "dev", "rationale": "know -> saber/conocer (used to tune alpha)"}
+{"id": "dev-saber", "l1": "en", "l2": "es", "lemma": "saber", "upos": "VERB", "label": "hard", "category": "split", "split": "dev", "rationale": "know -> saber/conocer (inspected earlier)"}
+{"id": "dev-energia", "l1": "en", "l2": "es", "lemma": "energía", "upos": "NOUN", "label": "easy", "category": "cognate", "split": "dev", "rationale": "Cognate (used to tune alpha)"}
+{"id": "dev-ga", "l1": "en", "l2": "ja", "lemma": "が", "upos": "ADP", "label": "hard", "category": "split", "split": "dev", "rationale": "Subject marking は/が (inspected earlier)"}
+{"id": "dev-wa", "l1": "en", "l2": "ja", "lemma": "は", "upos": "ADP", "label": "hard", "category": "split", "split": "dev", "rationale": "Topic marker (inspected earlier)"}
+{"id": "dev-wo", "l1": "en", "l2": "ja", "lemma": "を", "upos": "ADP", "label": "hard", "category": "gap", "split": "dev", "rationale": "Object case particle (inspected earlier)"}
+{"id": "dev-senpai", "l1": "en", "l2": "ja", "lemma": "先輩", "upos": "NOUN", "label": "hard", "category": "gap", "split": "dev", "rationale": "No English equivalent (used to tune alpha)"}
+{"id": "dev-shu", "l1": "en", "l2": "ja", "lemma": "種", "upos": "NOUN", "label": "hard", "category": "gap", "split": "dev", "rationale": "species/seed/kind (used to tune alpha)"}
+{"id": "dev-hotel", "l1": "en", "l2": "ja", "lemma": "ホテル", "upos": "NOUN", "label": "easy", "category": "loanword", "split": "dev", "rationale": "Loanword (inspected earlier)"}
+{"id": "dev-the", "l1": "ja", "l2": "en", "lemma": "the", "upos": "DET", "label": "hard", "category": "gap", "split": "dev", "rationale": "Articles absent in Japanese (used to tune alpha)"}
+{"id": "dev-on", "l1": "ja", "l2": "en", "lemma": "on", "upos": "ADP", "label": "hard", "category": "split", "split": "dev", "rationale": "Prepositions (scored in the text demo)"}
+{"id": "dev-water", "l1": "ja", "l2": "en", "lemma": "water", "upos": "NOUN", "label": "easy", "category": "translation", "split": "dev", "rationale": "Clean 1:1 translation (used to tune alpha)"}

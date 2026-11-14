@@ -1,0 +1,39 @@
+{
+  "request": {
+    "url": "https://es.wikipedia.org/w/api.php",
+    "params": {
+      "format": "json",
+      "formatversion": "2",
+      "maxlag": 5,
+      "action": "query",
+      "titles": "Palanca",
+      "prop": "revisions",
+      "rvdir": "newer",
+      "rvlimit": 1,
+      "rvprop": "ids|timestamp|tags"
+    }
+  },
+  "response": {
+    "continue": {
+      "rvcontinue": "20040725085719|200328",
+      "continue": "||"
+    },
+    "query": {
+      "pages": [
+        {
+          "pageid": 55576,
+          "ns": 0,
+          "title": "Palanca",
+          "revisions": [
+            {
+              "revid": 200294,
+              "parentid": 0,
+              "timestamp": "2004-07-25T08:34:07Z",
+              "tags": []
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

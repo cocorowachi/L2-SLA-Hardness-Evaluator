@@ -1,0 +1,12 @@
+{"text": "\"But I didn't do anything!\" \"He's lying!\"", "be_span": [31, 33], "be_token": "'s", "label": "estar", "group": "be + V-ing (progressive)"}
+{"text": "Tom is crying in his room.", "be_span": [4, 6], "be_token": "is", "label": "estar", "group": "be + V-ing (progressive)"}
+{"text": "I am crazy over you.", "be_span": [2, 4], "be_token": "am", "label": "estar", "group": "other be"}
+{"text": "My boyfriend is currently in my city.", "be_span": [13, 15], "be_token": "is", "label": "estar", "group": "other be"}
+{"text": "Tom is in the garden.", "be_span": [4, 6], "be_token": "is", "label": "estar", "group": "other be"}
+{"text": "A voyage to the moon in a spaceship is no longer a dream.", "be_span": [36, 38], "be_token": "is", "label": "ser", "group": "other be"}
+{"text": "He's a big person.", "be_span": [2, 4], "be_token": "'s", "label": "ser", "group": "other be"}
+{"text": "In the game of Go, two players take turns placing white and black stones on an initially empty board to ensure ownership of spaces on the playing field. The winner is the player who has achieved the greatest territorial conquest.", "be_span": [164, 166], "be_token": "is", "label": "ser", "group": "other be"}
+{"text": "Life is too short.", "be_span": [5, 7], "be_token": "is", "label": "ser", "group": "other be"}
+{"text": "That bag is mine.", "be_span": [9, 11], "be_token": "is", "label": "ser", "group": "other be"}
+{"text": "They won't be able to do anything about that problem today.", "be_span": [11, 13], "be_token": "be", "label": "ser", "group": "other be"}
+{"text": "Tom told me he was Canadian.", "be_span": [15, 18], "be_token": "was", "label": "ser", "group": "other be"}

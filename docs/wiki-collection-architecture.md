@@ -37,6 +37,19 @@ heading:
 |---|---|---|
 | References, Notes, Citations, Sources, Bibliography, Further reading, See also, External links | Referencias, Notas, Bibliografía, Véase también, Enlaces externos, Fuentes | 脚注, 注釈, 出典, 参考文献, 関連項目, 外部リンク |
 
+**Normalized:** eswiki leaves a zero-width space (U+200B) where each footnote reference was,
+often with no real space at the sentence boundary (*académico.​​Con…*). These become a single
+space in en/es and are removed in ja. Without this, many Spanish leads look like lists and
+sentences fail to split.
+
+**Normalized:** each formula is replaced with the placeholder `MATH`. TextExtracts renders a
+formula as a run of indented MathML-token lines plus a `{\displaystyle …}` line, which splits the
+surrounding sentence across several "paragraphs". The prose before and after is rejoined
+(*"the Taylor series of MATH about x = 0 converges…"*). `MATH` parses as a noun phrase.
+
+**Removed:** maintenance tags left in the text: es `[cita requerida]`, `[¿quién?]`, `[¿cuándo?]`
+etc.; ja `[英語版]` and other `[…語版]` interlanguage markers, `[注釈]`; en `[link removed]`.
+
 **Normalized:** the bracketed gloss in the lead's first sentence (readings, pronunciations,
 foreign-term glosses, e.g. *光合成（こうごうせい、ひかり-、英語: photosynthesis）とは…*, en
 "(/ˌfoʊtəˈsɪnθəsɪs/)") is removed from `lead`, and the original is kept in `lead_raw`. These
@@ -52,7 +65,7 @@ punctuation) get `is_list=true`, so analyses can exclude them without losing the
 | `translated_template` | Templates on the talk page: en *Translated page*, es *Traducido ref*, ja *翻訳告知* | Translated articles carry the source language's rhetoric |
 | `cx_created` | Tags on the article's **first** revision include `contenttranslation` | Created with Wikipedia's translation tool |
 | `created_at` | Timestamp of the first revision | Lets us compute `origin_lang` (the edition that existed first) for each triple |
-| `is_disambiguation`, `is_stub` | `pageprops` / stub templates | Unusable |
+| `is_disambiguation` | `pageprops` | Unusable (stubs are caught by the lead-length rule) |
 | `lead_chars`, `lead_sentences` | computed | Minimum-length filter |
 
 ### 1.4 Derived (computed after fetching, not scraped)
@@ -96,9 +109,9 @@ again.
 
 **Filter rules (defaults, all configurable):**
 - Drop if `translated_template` or `cx_created` is true in any language.
-- Drop disambiguation pages and stubs.
-- Lead must have at least 3 sentences in every language.
-- Lead length ratio (max/min chars, ja counted at about 1 char ≈ 2.5 en chars) ≤ 4.
+- Drop disambiguation pages.
+- Lead must be non-empty (at least 1 sentence) in every language. Lead length is recorded, not
+  filtered on; the ratio filter is available but disabled. See §8 for why.
 
 **Sentence splitting:**
 - en/es: `pysbd` (rule-based, handles abbreviations).
@@ -119,13 +132,17 @@ data/wiki/
 
 ## 5. Etiquette and compliance
 - **API only, no HTML scraping.** Wikimedia prefers this, and plain-text extracts are cleaner.
-- **Descriptive `User-Agent`** including a contact address, which Wikimedia policy requires.
-- **Sequential requests** (no parallelism), `maxlag=5`, exponential backoff on 429 / `maxlag`
-  errors, and about 1 request/sec at most.
+- **Descriptive `User-Agent`** including a contact address. This is required in practice:
+  since 2026, Wikimedia limits clients without contact information ("unidentified") to
+  **10 requests/min**. A compliant User-Agent gets **200/min**. The pilot hit 429s without one.
+  If `api.contact` is empty, the client caps itself at 300 requests at 8/min.
+- **Sequential requests** (no parallelism), `maxlag=5`, honoring `Retry-After` on 429/5xx
+  (at least 5 s with exponential backoff when it is absent), and ≤ 120 requests/min.
 - **License:** text is CC BY-SA 4.0. Every record keeps `url` + `revid` for attribution, and
   any released derived dataset must be CC BY-SA.
-- **Estimated load:** about 6,000 full-text calls plus a few hundred batched calls, roughly
-  2 hours at 1 req/s, done once and then cached.
+- **Estimated load:** about 6 requests per fully fetched triple plus batched checks. Fetching
+  stops early for a triple as soon as one language fails. The total depends on the keep rate
+  (§8): roughly 15–25k requests, or 2–4 hours at 120/min, done once and then cached.
 
 ## 6. Code layout
 
@@ -138,14 +155,48 @@ wikicollect/
   clean.py      section parsing, back-matter removal, list flagging
   filters.py    keep/drop rules
   segment.py    sentence splitting -> sentences.jsonl
+  store.py      JSONL helpers, manifest
   cli.py        python -m wikicollect {seed,resolve,fetch,filter,segment,all} --config ...
-config.yaml     sample size, filter thresholds, user agent
+config.toml     sample size, filter thresholds, user agent contact, template names, back-matter headings
 ```
 
-## 7. Decisions needed before building
-1. **Text scope:** lead plus body (recommended: store both, analyze the lead first), or lead only.
-2. **Sample size:** about 2,000 triples to start?
-3. **Seed source:** Vital articles L4, plus `origin_lang` stratification (recommended), or something else.
-4. **User-Agent contact:** which email or URL to put in it.
-5. **Translation filter:** drop triples flagged in *any* language (recommended, strict), or only
-   when the flag is on es/ja.
+`articles.jsonl` holds every page that was fetched, with `keep` and `drop_reasons`. Triples
+dropped before any full text was fetched (missing page, disambiguation, translation template)
+appear only in `fetched.jsonl`. `filter` can be re-run with a stricter config at no cost. A
+looser config needs `fetch` again, because pages skipped earlier were never downloaded.
+
+## 7. Decisions (approved 2026-10-22)
+1. Text scope: lead and body are both stored; the lead is analyzed first.
+2. Sample size: about 2,000 triples.
+3. Seeds: Vital articles L4, with `origin_lang` stratification.
+4. User-Agent contact: set in `config.toml` (`api.contact`).
+5. Translation filter: strict (drop if flagged in any language).
+
+## 8. Pilot findings (18 triples, Arts / Biology / Everyday life / Geography)
+- About 95% of Vital Articles L4 items have articles in all three languages.
+- Translation-template detection works (*Lake Onega*: en talk page flagged).
+- **Japanese leads are short by convention:** 1–4 sentences and about 15–250 characters, around
+  an eighth of the English length. Many Spanish leads are also short. With `min_lead_sentences = 3`
+  and `max_lead_ratio = 4`, only about 1 in 5 triples survives, so even all ~9,500 L4 triples
+  would not reach 2,000.
+- **The length filters bias the sample against what we are measuring.** They keep only ja
+  articles whose leads look English-like. Lead length is itself a rhetorical-convention
+  variable, so it should be recorded as an outcome rather than used to filter.
+  **Proposed:** `min_lead_sentences = 1` (drops only empty leads), and the ratio filter
+  removed (`max_lead_ratio = inf`), with `lead_chars` kept as a covariate. **Approved 2026-10-22.**
+
+## 9. Full run (2026-10-22)
+- 10,017 seeds → 9,589 items with articles in all three languages → **2,000 triples kept**,
+  with every topic quota met (181–182 each). About 12k API requests, about 2 hours, no errors.
+- Dropped: 81 triples (43 translation template, 27 Content Translation, 8 empty lead,
+  3 disambiguation). Translated articles are rarer among Vital Articles than expected.
+- `origin_lang`: en 1,848 / ja 93 / es 59. enwiki is older, so the English article usually came first.
+  This makes a stratified analysis by origin underpowered for es/ja origin. Seeding from
+  ja/es quality lists (§2.2) is needed if origin effects matter.
+- Median lead: en 12 sentences / 1,693 chars, es 8 / 1,323, ja 4 / 182.
+  Median body sections: en 19, es 11, ja 10.
+- After cleaning: **1.16M sentences** (en 533k, es 331k, ja 297k), of which lead sentences are
+  en 25k, es 20k, ja 11k. List-flagged: en 6.4%, es 7.0%, ja 13.4%.
+- Two cleaning fixes were found after the run and applied offline from the cached raw pages, with no
+  re-scraping: formula collapsing (removed about 437k spurious "sentences" of MathML tokens) and
+  maintenance-tag removal.

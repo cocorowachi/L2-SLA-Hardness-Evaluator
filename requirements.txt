@@ -1,4 +1,9 @@
-torch
-transformers
-scikit-learn
-numpy
+# Python >= 3.11 (uses tomllib). Tested on Python 3.14 (Windows, CPU) and 3.12 (Google Colab, GPU).
+# Exact tested versions: requirements-lock.txt
+torch>=2.2
+transformers>=4.40
+numpy>=1.26
+scikit-learn>=1.3
+stanza>=1.8
+pysbd>=0.3.4
+requests>=2.31

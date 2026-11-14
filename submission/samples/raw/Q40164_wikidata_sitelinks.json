@@ -1,0 +1,37 @@
+{
+  "request": {
+    "url": "https://www.wikidata.org/w/api.php",
+    "params": {
+      "action": "wbgetentities",
+      "ids": "Q40164|... (batch of 50)",
+      "props": "sitelinks",
+      "sitefilter": "enwiki|eswiki|jawiki",
+      "format": "json"
+    }
+  },
+  "response_excerpt": {
+    "entities": {
+      "Q40164": {
+        "type": "item",
+        "id": "Q40164",
+        "sitelinks": {
+          "enwiki": {
+            "site": "enwiki",
+            "title": "Lever",
+            "badges": []
+          },
+          "eswiki": {
+            "site": "eswiki",
+            "title": "Palanca",
+            "badges": []
+          },
+          "jawiki": {
+            "site": "jawiki",
+            "title": "てこ",
+            "badges": []
+          }
+        }
+      }
+    }
+  }
+}

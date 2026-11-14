@@ -1,0 +1,49 @@
+{
+  "qid": "Q40164",
+  "languages": {
+    "en": {
+      "title": "Lever",
+      "url": "https://en.wikipedia.org/w/index.php?title=Lever&oldid=1380270426",
+      "raw_lead_from_api": "A lever is a simple machine consisting of a beam or rigid rod pivoted at a fixed hinge or fulcrum. A lever is a rigid body capable of rotating on a point on itself. On the basis of the locations of fulcrum, load, and effort, the lever is divided into three types. It is one of the six simple machines identified by Renaissance scientists. A lever amplifies an input force to provide a greater output force, which is said to provide leverage, which is mechanical advantage gained in the system, equal to the ratio of the output force to the input force. As such, the lever is a mechanical advantage device, trading off force against movement.\n\n",
+      "processed_lead": [
+        "A lever is a simple machine consisting of a beam or rigid rod pivoted at a fixed hinge or fulcrum. A lever is a rigid body capable of rotating on a point on itself. On the basis of the locations of fulcrum, load, and effort, the lever is divided into three types. It is one of the six simple machines identified by Renaissance scientists. A lever amplifies an input force to provide a greater output force, which is said to provide leverage, which is mechanical advantage gained in the system, equal to the ratio of the output force to the input force. As such, the lever is a mechanical advantage device, trading off force against movement."
+      ],
+      "processed_lead_sentences": [
+        "A lever is a simple machine consisting of a beam or rigid rod pivoted at a fixed hinge or fulcrum.",
+        "A lever is a rigid body capable of rotating on a point on itself.",
+        "On the basis of the locations of fulcrum, load, and effort, the lever is divided into three types.",
+        "It is one of the six simple machines identified by Renaissance scientists.",
+        "A lever amplifies an input force to provide a greater output force, which is said to provide leverage, which is mechanical advantage gained in the system, equal to the ratio of the output force to the input force.",
+        "As such, the lever is a mechanical advantage device, trading off force against movement."
+      ]
+    },
+    "es": {
+      "title": "Palanca",
+      "url": "https://es.wikipedia.org/w/index.php?title=Palanca&oldid=175937432",
+      "raw_lead_from_api": "La palanca​​ es una máquina simple​​ cuya función consiste en transmitir fuerza y desplazamiento. Está compuesta por una barra rígida que puede girar libremente 67° alrededor de un punto de apoyo, llamado fulcro.​\nPuede utilizarse para amplificar la fuerza mecánica aplicada a un objeto, para incrementar su velocidad o distancia recorrida, en respuesta a la aplicación de una fuerza.\nEn las palancas simples existen tres puntos de análisis que deben considerarse: la fuerza aplicada, la reacción (o resistencia) y el punto de apoyo.\n\n",
+      "processed_lead": [
+        "La palanca es una máquina simple cuya función consiste en transmitir fuerza y desplazamiento. Está compuesta por una barra rígida que puede girar libremente 67° alrededor de un punto de apoyo, llamado fulcro.",
+        "Puede utilizarse para amplificar la fuerza mecánica aplicada a un objeto, para incrementar su velocidad o distancia recorrida, en respuesta a la aplicación de una fuerza.",
+        "En las palancas simples existen tres puntos de análisis que deben considerarse: la fuerza aplicada, la reacción (o resistencia) y el punto de apoyo."
+      ],
+      "processed_lead_sentences": [
+        "La palanca es una máquina simple cuya función consiste en transmitir fuerza y desplazamiento.",
+        "Está compuesta por una barra rígida que puede girar libremente 67° alrededor de un punto de apoyo, llamado fulcro.",
+        "Puede utilizarse para amplificar la fuerza mecánica aplicada a un objeto, para incrementar su velocidad o distancia recorrida, en respuesta a la aplicación de una fuerza.",
+        "En las palancas simples existen tres puntos de análisis que deben considerarse: la fuerza aplicada, la reacción (o resistencia) y el punto de apoyo."
+      ]
+    },
+    "ja": {
+      "title": "てこ",
+      "url": "https://ja.wikipedia.org/w/index.php?title=%E3%81%A6%E3%81%93&oldid=110020764",
+      "raw_lead_from_api": "てこ（梃子、梃，英語: lever）とは、弱い力で重たいものを動かしたり、微小な運動を大規模な運動に変換する道具のこと。単純機械の一つであり、あらゆる機械の基礎となっている。\n\n",
+      "processed_lead": [
+        "てことは、弱い力で重たいものを動かしたり、微小な運動を大規模な運動に変換する道具のこと。単純機械の一つであり、あらゆる機械の基礎となっている。"
+      ],
+      "processed_lead_sentences": [
+        "てことは、弱い力で重たいものを動かしたり、微小な運動を大規模な運動に変換する道具のこと。",
+        "単純機械の一つであり、あらゆる機械の基礎となっている。"
+      ]
+    }
+  }
+}

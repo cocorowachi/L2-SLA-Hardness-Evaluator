@@ -1,0 +1,66 @@
+# wikicollect configuration. See docs/wiki-collection-architecture.md.
+
+[run]
+out_dir = "data/wiki"
+langs = ["en", "es", "ja"]
+n_triples = 2000          # kept triples, split evenly across seed topics
+seed = 0
+
+[api]
+# REQUIRED for a full collection run: an email or project URL, sent in the User-Agent header
+# (Wikimedia policy). Prefer the WIKICOLLECT_CONTACT environment variable, which overrides this,
+# so a personal address never lands in the repository.
+contact = ""
+min_interval = 0.5        # seconds between uncached requests (requests are never parallel)
+maxlag = 5
+
+[seed]
+# English Vital Articles, Level 4: one page per topic area.
+pages = [
+  "Wikipedia:Vital articles/Level 4/Arts",
+  "Wikipedia:Vital articles/Level 4/Biology and health sciences",
+  "Wikipedia:Vital articles/Level 4/Everyday life",
+  "Wikipedia:Vital articles/Level 4/Geography",
+  "Wikipedia:Vital articles/Level 4/History",
+  "Wikipedia:Vital articles/Level 4/Mathematics",
+  "Wikipedia:Vital articles/Level 4/People",
+  "Wikipedia:Vital articles/Level 4/Philosophy and religion",
+  "Wikipedia:Vital articles/Level 4/Physical sciences",
+  "Wikipedia:Vital articles/Level 4/Society and social sciences",
+  "Wikipedia:Vital articles/Level 4/Technology",
+]
+
+[filter]
+# Lead length is a rhetorical-convention variable (ja leads are short), so it is recorded,
+# not filtered on: only empty leads are dropped. See architecture §8.
+min_lead_sentences = 1
+max_lead_ratio = inf      # max/min lead length across languages, after weighting
+ja_char_weight = 2.5      # one ja character counts as this many en/es characters
+drop_translated = "any"   # "any": drop if flagged in any language; "es_ja": ignore flags on en
+
+[embed]                   # wikiembed: Stanza words -> XLM-R type-level vectors
+out_dir = "data/embed"
+topics = ["Physical sciences", "Biology and health sciences", "Mathematics", "Technology"]
+parts = ["lead", "section"]
+max_sentences_per_article = 120   # lead first, then body in order; keeps long en articles from dominating
+max_sentence_chars = 1000         # longer "sentences" are usually unsplit lists; skipped
+processors = "tokenize,pos,lemma" # add ",depparse" for UD trees (about 3x slower on CPU)
+model = "FacebookAI/xlm-roberta-base"
+layer = 8                         # middle layers align words across languages best
+min_count = 5                     # occurrences needed for a word to get a vector
+max_contexts = 100                # random occurrences averaged per word
+skip_upos = ["PUNCT", "SYM", "NUM", "X"]
+skip_lemmas = ["MATH"]            # formula placeholder from wikicollect
+batch_size = 32
+
+[translation_templates]   # checked on each article's talk page
+en = "Template:Translated page"
+es = "Plantilla:Traducido ref"
+ja = "Template:翻訳告知"
+
+[back_matter]             # body sections dropped (with their subsections), matched case-insensitively
+en = ["References", "Notes", "Citations", "Sources", "Bibliography", "Further reading",
+      "See also", "External links", "Footnotes", "Notes and references"]
+es = ["Referencias", "Notas", "Bibliografía", "Véase también", "Enlaces externos", "Fuentes",
+      "Notas y referencias"]
+ja = ["脚注", "注釈", "出典", "参考文献", "関連項目", "外部リンク", "注", "脚注・出典"]
