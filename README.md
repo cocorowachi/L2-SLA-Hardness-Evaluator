@@ -20,15 +20,15 @@ to rebuild than 90% of them.
 - Libraries in `requirements.txt` (exact tested versions in `requirements-lock.txt`): PyTorch, Hugging Face
   Transformers, Stanza, scikit-learn, NumPy, pysbd, requests
 - About **2 GB of disk** and an internet connection on first run, for:
-  - our prebuilt artifacts, **99 MB**, from this repo's [GitHub Release v0.1](https://github.com/cocorowachi/nlp/releases/tag/v0.1)
+  - our prebuilt artifacts, **99 MB**, from this repo's [GitHub Release v0.1](https://github.com/cocorowachi/L2-SLA-Hardness-Evaluator/releases/tag/v0.1)
   - XLM-R base (~1.1 GB, Hugging Face `FacebookAI/xlm-roberta-base`) and Stanza en/es/ja models (~1 GB), downloaded automatically
 - No GPU, API keys or accounts needed. Everything runs locally on CPU.
 
 ## Setup
 
 ```bash
-git clone https://github.com/cocorowachi/nlp.git
-cd nlp
+git clone https://github.com/cocorowachi/L2-SLA-Hardness-Evaluator.git
+cd L2-SLA-Hardness-Evaluator
 python -m venv .venv
 # Windows: .venv\Scripts\activate    macOS/Linux: source .venv/bin/activate
 python scripts/setup.py

@@ -26,7 +26,7 @@ from wikicollect.store import read_jsonl, write_jsonl  # noqa: E402
 from wikiembed.reconstruct import CONTENT_UPOS, FUNCTION_UPOS  # noqa: E402
 from wikiembed.vectors import NATIVE_SCRIPT, lemma_script  # noqa: E402
 
-REPO = "cocorowachi/nlp"
+REPO = "cocorowachi/L2-SLA-Hardness-Evaluator"
 
 
 def main() -> None:
